@@ -1,23 +1,41 @@
 {
-  "name": "discord-bot",
+  "name": "scratch-bot",
   "version": "1.0.0",
-  "description": "Testing creating a Discord Bot",
+  "description": "A Discord bot for displaying MIT Scratch statistics",
   "main": "dist/index.js",
-  "author": "Patrick Reagan",
-  "license": "MIT",
+  "author": {
+    "name": "Patrick Reagan",
+    "email": "patrick@the-reagans.com",
+    "url": "https://patrick-reagan.com"
+  },
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "12.18.3"
+  },
   "scripts": {
-    "start": "yarn ts-node src/index.ts",
-    "start:dev": "yarn nodemon src/index.ts"
+    "start": "node dist/web/index.js",
+    "postinstall": "tsc -p tsconfig.build.json",
+    "bot": "yarn ts-node src/bot/index.ts",
+    "bot:dev": "yarn nodemon src/bot/index.ts",
+    "web": "yarn ts-node src/web/index.ts",
+    "web:dev": "yarn nodemon src/web/index.ts",
+    "test": "yarn jest"
   },
   "dependencies": {
-    "axios": "^0.21.0",
     "discord.js": "^12.5.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "scratch-stats": "file:./vendor/scratch-stats-v0.2.0.tgz"
   },
   "devDependencies": {
+    "@types/express": "^4.17.9",
+    "@types/jest": "^26.0.19",
     "@types/node": "^14.14.10",
+    "jest": "^26.6.3",
     "nodemon": "^2.0.6",
     "prettier": "^2.2.0",
+    "ts-jest": "^26.4.4",
     "ts-node": "^9.0.0",
     "typescript": "^4.1.2"
   }
